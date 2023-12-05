@@ -1,11 +1,11 @@
-const { Dog, Temperaments } = require("../db");
+const { Dog, Temperament } = require("../db");
 const axios = require("axios");
 
 const endPoint = "https://api.thedogapi.com/v1/breeds";
 //* Controller For View Dods
 
 const dogsApi = async (req) => {
-  const { data } = await axios(`${req}/?limit=10`);
+  const { data } = await axios(`${req}/?limit=1`);
 
   return data.map((dog) => {
     return {
@@ -13,12 +13,13 @@ const dogsApi = async (req) => {
       id: dog.id,
       name: dog.name,
       image: dog.reference_image_id,
-      weight: dog.weight,
-      height: dog.height,
+      weight: dog.weight.metric,
+      height: dog.height.metric,
       life: dog.life_span,
       bredfor: dog.bred_for,
       bredgroup: dog.breed_group,
       origin: dog.origin,
+      temperaments: dog.temperament
     };
   });
 };
@@ -26,7 +27,7 @@ const dogsApi = async (req) => {
 const dogsDB = async (Dog) => {
     const data = await Dog.findAll({
         include:{
-            model:Temperaments,
+            model:Temperament,
             attributes:["name"],
             through:{
                 attributes:[],
@@ -35,8 +36,8 @@ const dogsDB = async (Dog) => {
     })
 
     return data.map(temp => {
-        const temperaments = temp.dataValues.name((temp) => temp.name);
-        return {...temp.dataValues, temperaments:[...temperaments]}
+        const temperament = temp.dataValues.temperaments.map((temp) => temp.name);
+        return {...temp.dataValues, temperaments:[...temperament]}
     })
 };
 
