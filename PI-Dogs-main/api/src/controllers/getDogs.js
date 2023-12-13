@@ -5,7 +5,7 @@ const endPoint = "https://api.thedogapi.com/v1/breeds";
 //* Controller For View Dods
 
 const dogsApi = async (req) => {
-  const { data } = await axios(`${req}/?limit=1`);
+  const { data } = await axios(`${req}/?limit=2`);
 
   return data.map((dog) => {
     return {

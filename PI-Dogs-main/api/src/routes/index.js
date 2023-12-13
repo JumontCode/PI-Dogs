@@ -7,7 +7,7 @@ const router = Router();
 const getDogs = require('../controllers/GetDogs');
 const createDog = require('../controllers/createDog')
 const findDogById = require('../controllers/findDogsById')
-const findDogByName = require('../controllers/findDogsById')
+const findDogByName = require('../controllers/findDogsByName')
 
 const getTemperament = require('../controllers/getTemperaments')
 
@@ -15,10 +15,10 @@ const getTemperament = require('../controllers/getTemperaments')
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
-router.get('/dogs', getDogs) //* SUCCES
+router.get('/dogss', getDogs) //* SUCCES
 router.post('/dogs', createDog)  //* SUCCES
 router.get('/dogs/:id', findDogById) //* SUCCES
-router.get('/dogs/', findDogByName) //* SUCCES
+router.get('/dogs/', findDogByName)
 
 router.get('/temperaments', getTemperament) //* SUCCES
 

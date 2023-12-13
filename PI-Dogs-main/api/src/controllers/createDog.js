@@ -1,14 +1,15 @@
 const { Dog } = require("../db");
+const { v4: uuidv4 } = require('uuid');
 
 const createDog = async (req, res) => {
   try {
-    let { name, image, height, weight, life, temperaments } = req.body;
+    let { name, image, height, weight, life, temperaments, breedgroup } = req.body;
     
     if (!name || !image || !life || !temperaments) {
         res.status(400).send("No puede haber campos vacios!");
     }
     
-    const newDog = await Dog.create({ name, image, height, weight, life: life + ' years'});
+    const newDog = await Dog.create({ id: uuidv4(), name, image, height, weight, breedgroup, life: life + ' years'});
 
     newDog.addTemperaments(temperaments);
     
