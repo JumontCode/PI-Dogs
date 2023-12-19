@@ -29,9 +29,8 @@ const findDogsByName = async (req, res) => {
     const { data } = await axios.get(endPoint);
 
     // Formatear y filtrar perros de la API por nombre
-    const dogsFilter = data
-      .filter((dog) => dog.name.toLowerCase().includes(name.toLowerCase()))
-      .map((dog) => ({
+    const dogsFilter = 
+    data.filter((dog) => dog.name.toLowerCase().includes(name.toLowerCase())).map((dog) => ({
         created: false,
         id: dog.id,
         name: dog.name,

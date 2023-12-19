@@ -18,7 +18,7 @@ const getTemperament = require('../controllers/getTemperaments')
 router.get('/dogss', getDogs) //* SUCCES
 router.post('/dogs', createDog)  //* SUCCES
 router.get('/dogs/:id', findDogById) //* SUCCES
-router.get('/dogs/', findDogByName)
+router.get('/dogs/', findDogByName) //* SUCCES
 
 router.get('/temperaments', getTemperament) //* SUCCES
 
