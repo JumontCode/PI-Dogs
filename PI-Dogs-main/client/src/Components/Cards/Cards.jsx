@@ -4,15 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { getDogs } from "../../redux/actions";
 import styles from "./cards.module.css";
 
-export const Cards = () => {
-  const dogs = useSelector((state) => state.dogs);
-  const dispatch = useDispatch();
+export const Cards = ({ dogs }) => {
 
-  useEffect(() => {
-    dispatch(getDogs())
-}, []);
-
-console.log(dogs);
+  console.log(dogs);
 
   return (
     <div className={styles.cardsContainer}>

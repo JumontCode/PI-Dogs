@@ -10,7 +10,7 @@ const apiKey =
 
 const dogsApi = async () => {
   try {
-    const { data } = await axios(`${endPoint}/?limit=5`);
+    const { data } = await axios(`${endPoint}/?limit=10`);
     const result = [];
 
     for (const dogApi of data) {
