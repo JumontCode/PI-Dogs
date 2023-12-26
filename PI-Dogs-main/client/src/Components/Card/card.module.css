@@ -1,11 +1,12 @@
 .containerCard{
     padding: 10px;  
-    align-items: center;
+    margin: auto;
 }
 
 .card{
-    background: linear-gradient(100deg, rgba(240, 113, 81, 0.603) 0,2%, rgba(189, 130, 83, 0) 5%, rgb(255, 208, 0) 100%);
-    height: 320px;
+    /* background: linear-gradient(100deg, rgba(240, 113, 81, 0.603) 0,2%, rgba(189, 130, 83, 0) 5%, rgb(255, 208, 0) 100%); */
+    background: white;
+    height: 300px;
     width: 220px;
     border: 1px solid rgb(255, 0, 0);
     padding: 1px;
@@ -15,10 +16,9 @@
 }
 
 img{
-    width: 200px;
-    height: 250px;
+    width: 180px;
+    height: 150px;
     margin-top: 18px;
-    margin-left: 25px;
     border-radius: 10px;
 }
 
@@ -30,5 +30,5 @@ a{
     font-size: 14px;
     display: flex;
     justify-content: space-around;
-    color: yellow;
+    color: rgb(255, 153, 0);
 }

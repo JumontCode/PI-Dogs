@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Routes, Route, useLocation /*, useNavigate*/ } from "react-router-dom";
 
 import Cards from "./Components/Cards/Cards";
-// import { getDogs } from "../../redux/actions";
+import Detail from "./Components/Detail/Detail";
 
 function App() {
   const itemsPerPage = 8;
@@ -96,6 +96,7 @@ function App() {
               nextHandler={nextHandler}
               prevHandler={prevHandler}
             />} />
+            <Route path="/detail/:id" element={<Detail />} />
       </Routes>
     </div>
   );
