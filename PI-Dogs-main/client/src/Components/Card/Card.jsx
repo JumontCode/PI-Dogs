@@ -9,17 +9,17 @@ export const Card = ({ id, name, image, weight, temperaments }) => {
     <div className={styles.containerCard}>
       <div className={styles.card}>
         <Link to={`/detail/${id}`}>
-          <p key={id}>{name}</p>
+          <p key={id} >{name}</p>
         </Link>
         <div className={styles.buttonContainer}>
           <img src={image} alt="" />
         </div>
         <div className={styles.info}>
-          <p>{`Peso: ${weight}`}</p>
+          <p>{`${weight}`}</p>
           {temperamentArray.length > 3 ? (
-            <p>{`Temperamentos: ${temperamentArray[0]}, ${temperamentArray[1]}, ${temperamentArray[2]}`}</p>
+            <p>{`${temperamentArray[0]}, ${temperamentArray[1]}, ${temperamentArray[2]}`}</p>
           ) : (
-            <p>{temperaments}</p>
+            <p>{`${temperaments}`}</p>
           )}
         </div>
       </div>

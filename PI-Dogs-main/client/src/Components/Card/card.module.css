@@ -6,7 +6,7 @@
 .card{
     /* background: linear-gradient(100deg, rgba(240, 113, 81, 0.603) 0,2%, rgba(189, 130, 83, 0) 5%, rgb(255, 208, 0) 100%); */
     background: white;
-    height: 300px;
+    height: 280px;
     width: 220px;
     border: 1px solid rgb(255, 0, 0);
     padding: 1px;
@@ -27,7 +27,7 @@ a{
 }
 
 .info{
-    font-size: 14px;
+    font-size: 12px;
     display: flex;
     justify-content: space-around;
     color: rgb(255, 153, 0);

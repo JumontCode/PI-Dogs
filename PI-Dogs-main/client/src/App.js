@@ -5,6 +5,7 @@ import { Routes, Route, useLocation /*, useNavigate*/ } from "react-router-dom";
 
 import Cards from "./Components/Cards/Cards";
 import Detail from "./Components/Detail/Detail";
+import Nav from "./Components/Nav/Nav";
 
 function App() {
   const itemsPerPage = 8;
@@ -59,33 +60,33 @@ function App() {
     setcurrentPage(prevPage);
   };
 
-  // const onSearch = async (id) => {
-  //   const endPoint = `http://localhost:3001/dogs/`;
+  const onSearch = async (id) => {
+    const endPoint = `http://localhost:3001/dogs/`;
 
-  //   if (Number(id)) {
-  //     alert("Por favor ingrese un NOMBRE o un ID correcto.");
+    if (Number(id)) {
+      // alert("Por favor ingrese un NOMBRE o un ID correcto.");
 
-  //     try {
-  //       const { data } = await axios(`${endPoint}${id}`);
-  //       if (data.name) {
-  //         const dogExists = dogs.find((dog) => dog.id === data.id)
-  //         if (!dogExists) {
-  //           setDogs((dogs) => [...dogs, data]);
-  //         } else if (dogExists) {
-  //           alert(`¡YA EXISTE UN PERSONAJE CON EL ID: ${id}!`);
-  //         } else {
-  //           alert(`No EXISTEN PERSONAJES CON ${id}`);
-  //         }
-  //       }
-  //     } catch (error) {
-  //       console.error(error)
-  //     }
-  //   }
-  // }
+      try {
+        const { data } = await axios(`${endPoint}${id}`);
+        if (data.name) {
+          const dogExists = dogs.find((dog) => dog.id === data.id)
+          if (!dogExists) {
+            setDogs((dogs) => [...dogs, data]);
+          } else if (dogExists) {
+            alert(`¡YA EXISTE UN PERRO CON EL ID: ${id}!`);
+          } else {
+            alert(`NO EXISTEN PERROS CON ${id}`);
+          }
+        }
+      } catch (error) {
+        console.error(error)
+      }
+    }
+  }
 
   return (
     <div className="App">
-      {/* <h1>Henry Dogs</h1> */}
+      {location.pathname === '/' && <Nav onSearch={onSearch} />}
       <Routes>
         <Route
           path="/"

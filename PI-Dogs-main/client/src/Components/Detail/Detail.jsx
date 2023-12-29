@@ -9,29 +9,46 @@ export default function Detail() {
     const usnav = useNavigate();
     const [dog, setDog] = useState({});
 
-    const findDog = async () => {
-        try {
-            const { data } = await axios(`https://localhost:3001/dogs/${id}`);
-            if (data.name) {
-                setDog(data);
-            } else {
-                window.alert("No hay perros con ese ID");
-                usnav("/");
-            }
-        } catch (error) {
-            console.error("Error al obtener datos del perro:", error);
-            // usnav("/error");
-        }
-    }
+    // useEffect(() => {
+    //     axios(`https://localhost:3001/dogs/${id}`)
+    //         .then(({ data }) => {
+    //             if (data.name) {
+    //                 setDog(data);
+    //             } else {
+    //                 window.alert("No hay personajes con ese ID");
+    //             }
+    //         })
+    //         // .catch((error) => usnav('"/"'));
+    //         .catch((error) => error.message);
+    //     return setDog({});
+    // }, [id]);
 
     useEffect(() => {
-        findDog(id);
-
+        const fetchData = async () => {
+            try {
+                const response = await axios(`https://localhost:3001/dogs/${id}`);
+                const { data } = response;
+    
+                if (data.name) {
+                    setDog(data);
+                } else {
+                    window.alert("No hay personajes con ese ID");
+                }
+            } catch (error) {
+                console.error("Error al obtener datos del perro:", error);
+                // Podrías realizar acciones adicionales aquí si es necesario
+            } finally {
+                setDog({});
+            }
+        };
+    
+        fetchData();
+    
         return () => {
             setDog({});
         };
     }, [id]);
-
+    
     return (
         <div className={styles.DetailContainer}>
             <>

@@ -1,0 +1,70 @@
+.navContainer{
+float:initial;
+top: 21px;
+padding: 10px;
+background-color: rgba(255, 251, 0, 0.435);
+width: 60%;
+display: flex;
+margin: 0 auto;
+border-radius: 10px;
+}
+
+.btnContainer{
+    position: relative;
+    height: 34px;
+    width: 500px;
+    background: rgb(141,203,232,1);
+    border-radius: 10px;
+}
+
+.searchContainer{
+    border-radius: 10px;
+    background: rgb(141,203,232,1);
+    width: 200px;
+    height: 34px;
+    margin-left: 10px;
+    position: relative;
+}
+
+nav button{
+    /* color: red; */
+    background-color: rgb(59,64,66);
+    border-radius: 5px;
+    padding: 5px;
+    width: 70px;
+}
+nav button:hover{
+    /* color: red; */
+    background-color: rgb(66,229,254);
+    
+    background-color: rgb(23,242,182);
+}
+
+nav li{
+    position: relative;
+    right: 15px;
+    display:inline-block;
+    /* padding: 12px; */
+    /* background-color:#000; */
+    /* border:1px solid #000; */
+    /* text-align:center; */
+    margin-top: 3px;
+}
+
+nav li:hover{
+    color:#000;
+}
+
+.logo{
+    position: relative;
+    right: 25px;
+    font-weight: 600;
+    font-family: 'Black And White Picture', cursiva;
+}
+
+ul{
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
