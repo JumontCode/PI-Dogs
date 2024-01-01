@@ -35,6 +35,8 @@ function App() {
     dogsAll();
   }, []);
 
+
+
   const nextHandler = () => {
     const totalElementos = datosFromApi.length;
 
@@ -44,7 +46,7 @@ function App() {
 
     if (firstIndex < totalElementos) {
       const nextPageData = datosFromApi.slice(firstIndex, firstIndex + itemsPerPage)
-      setDogs(nextPageData);
+      setDogs([...nextPageData]);
       setcurrentPage(nextPage);
     }
   };
@@ -60,29 +62,86 @@ function App() {
     setcurrentPage(prevPage);
   };
 
-  const onSearch = async (id) => {
-    const endPoint = `http://localhost:3001/dogs/`;
 
+//   const onSearch = async (id) => {
+//     const endPoint = `http://localhost:3001/dogs`;
+
+//     try {
+//       if (Number(id)) {
+//           const { data } = await axios(`${endPoint}/${id}`);
+          
+//           if (data.name) {
+//               if (!dogs.find((dog) => dog.id === data.id)) {
+//                   setDogs((dogs) => [...dogs, data]);
+//               } else {
+//                   alert(`¡YA EXISTE UN PERRO CON EL ID: ${id}!`);
+//               }
+//           } else {
+//               alert(`NO EXISTEN PERROS CON EL ID: ${id}`);
+//           }
+//       } else {
+//           const { data } = await axios(`${endPoint}/?name=${id}`);
+//           if (data.length > 0) {
+              
+//               setDogs((dogs) => [...dogs, ...data]);
+//           } else {
+//               alert(`NO EXISTEN PERROS CON EL NOMBRE: ${id}`);
+//           }
+//       }
+//     } catch (error) {
+//         console.error(error);
+//     }
+// };
+
+const onSearch = async (id) => {
+  const endPoint = `http://localhost:3001/dogs`;
+
+  try {
     if (Number(id)) {
-      // alert("Por favor ingrese un NOMBRE o un ID correcto.");
+      const { data } = await axios(`${endPoint}/${id}`);
+      console.log('respuesta del server', data);
+      if (data.name) {
+        if (!dogs.find((dog) => dog.id === data.id)) {
+          const updatedDogs = [...dogs, data];
+          const totalElements = updatedDogs.length;
 
-      try {
-        const { data } = await axios(`${endPoint}${id}`);
-        if (data.name) {
-          const dogExists = dogs.find((dog) => dog.id === data.id)
-          if (!dogExists) {
-            setDogs((dogs) => [...dogs, data]);
-          } else if (dogExists) {
-            alert(`¡YA EXISTE UN PERRO CON EL ID: ${id}!`);
+          // Verificar si se excede el límite actual de elementos por página
+          if (totalElements > (currentPage + 1) * itemsPerPage) {
+            const newPage = Math.floor(totalElements / itemsPerPage);
+            setDogs(updatedDogs.slice(newPage * itemsPerPage, (newPage + 1) * itemsPerPage));
+            setcurrentPage(newPage);
           } else {
-            alert(`NO EXISTEN PERROS CON ${id}`);
+            setDogs(updatedDogs);
           }
+        } else {
+          alert(`¡YA EXISTE UN PERRO CON EL ID: ${id}!`);
         }
-      } catch (error) {
-        console.error(error)
+      } else {
+        alert(`NO EXISTEN PERROS CON EL ID: ${id}`);
+      }
+    } else {
+      const { data } = await axios(`${endPoint}/?name=${id}`);
+      if (data.length > 0) {
+        const updatedDogs = [...dogs, ...data];
+        const totalElements = updatedDogs.length;
+
+        // Verificar si se excede el límite actual de elementos por página
+        if (totalElements > (currentPage + 1) * itemsPerPage) {
+          const newPage = Math.floor(totalElements / itemsPerPage);
+          setDogs(updatedDogs.slice(newPage * itemsPerPage, (newPage + 1) * itemsPerPage));
+          setcurrentPage(newPage);
+        } else {
+          setDogs(updatedDogs);
+        }
+      } else {
+        alert(`NO EXISTEN PERROS CON EL NOMBRE: ${id}`);
       }
     }
+  } catch (error) {
+    console.error(error);
   }
+};
+
 
   return (
     <div className="App">

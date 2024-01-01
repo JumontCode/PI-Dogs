@@ -3,6 +3,10 @@
     margin: auto;
 }
 
+.nameCard{
+    text-align: center;
+}
+
 .card{
     /* background: linear-gradient(100deg, rgba(240, 113, 81, 0.603) 0,2%, rgba(189, 130, 83, 0) 5%, rgb(255, 208, 0) 100%); */
     background: white;

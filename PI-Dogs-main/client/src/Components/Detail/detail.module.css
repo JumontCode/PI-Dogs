@@ -1,6 +1,6 @@
 .DetailContainer{
     width:800px;
-    height:450px;
+    height:400px;
     background:transparent;
     position:absolute;
     left:0;
@@ -23,8 +23,8 @@
   }
   
   .card_left img {
-    width:100%;
-    height:100%;
+    width:90%;
+    height:80%;
     border-radius:10px 0 0 10px;
     -webkit-border-radius:10px 0 0 10px;
     -moz-border-radius:10px 0 0 10px;
@@ -35,7 +35,7 @@
   .card_right {
       width:60%;
       float:left;
-      background:#000000;
+      background:#3f3434;
       height:100%;
       border-radius:0 10px 10px 0;
       -webkit-border-radius:0 10px 10px 0;
@@ -52,7 +52,7 @@
    padding:0 0 0 40px;
    letter-spacing:1px;
   }
-  
+
   .description{
       color:white;
       font-family: 'Montserrat', sans-serif;

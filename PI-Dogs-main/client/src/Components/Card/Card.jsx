@@ -9,7 +9,7 @@ export const Card = ({ id, name, image, weight, temperaments }) => {
     <div className={styles.containerCard}>
       <div className={styles.card}>
         <Link to={`/detail/${id}`}>
-          <p key={id} >{name}</p>
+          <p className={styles.nameCard} key={id} >{name}</p>
         </Link>
         <div className={styles.buttonContainer}>
           <img src={image} alt="" />

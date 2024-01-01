@@ -23,8 +23,6 @@ const findDogById = async (req, res) => {
             return res.status(200).json(findDB.dataValues);
           }
     }
-    // const { data } = await axios(`${endPoint}${id}`);
-    // res.status(200).json(data);
 
     const { data } = await axios(`${endPoint}${id}`);
     const dogImg = await axios(`${endPointImg}${data.reference_image_id}?api_key=${apiKey}`);
