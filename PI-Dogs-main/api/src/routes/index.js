@@ -3,14 +3,12 @@ const router = Router();
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
 
-
 const getDogs = require('../controllers/GetDogs');
 const createDog = require('../controllers/createDog')
 const findDogById = require('../controllers/findDogsById')
 const findDogByName = require('../controllers/findDogsByName')
 
 const getTemperament = require('../controllers/getTemperaments')
-
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);

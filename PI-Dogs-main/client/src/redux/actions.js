@@ -34,10 +34,10 @@ export const getDetail = (id) => {
 export const postDog = (payload) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.post(URL, payload);
+      const { data } = await axios.post('http://localhost:3001/dogs', payload);
       return dispatch({
         type: NEW_DOG,
-        payload: data,
+        payload: payload,
       });
     } catch (error) {
       console.error("Error creating new dog", error.message);

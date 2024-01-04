@@ -18,12 +18,6 @@ const rootReducer = (state = initialState, action) => {
         dogs: action.payload,
       };
 
-    // case DOGS_BY_NAME:
-    //   return {
-    //     ...state,
-    //     dogs: action.payload,
-    //   };
-
     case DOGS_BY_NAME:
       if (Array.isArray(action.payload)) {
         return {

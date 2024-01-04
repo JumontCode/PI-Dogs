@@ -1,0 +1,45 @@
+/* CreateDogForm.css */
+
+.create-dog-container {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.create-dog-container h2 {
+  text-align: center;
+  color: #333;
+}
+
+.create-dog-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.create-dog-form label {
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.create-dog-form input {
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.create-dog-form button {
+  background-color: #4caf50;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.create-dog-form button:hover {
+  background-color: #45a049;
+}

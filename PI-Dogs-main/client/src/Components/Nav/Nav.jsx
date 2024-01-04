@@ -23,6 +23,7 @@ export default function Nav() {
                     <ul>
                         <li className={styles.logo}>THE DOGS API</li>
                         <li><Link to={'/home'}><button>Home</button></Link></li>
+                        <li><Link to={'/dogs'}><button>Create Dog</button></Link></li>
                         <li><Link to={'/about'}><button>About</button></Link></li>
                     </ul>
                 </div>
